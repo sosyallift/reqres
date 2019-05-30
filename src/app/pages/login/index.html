@@ -1,0 +1,17 @@
+<h1>
+    Login
+</h1>
+
+<!-- loading -->
+<div *ngIf="isPageLoading">Loading...</div>
+
+<!--login form -->
+<div *ngIf="!isPageLoading" class="container">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <input type="text" [(ngModel)]="login" name="login" required />
+        <br />
+        <input type="password" [(ngModel)]="password" name="password" required />
+        <br /><br />
+       <button type="submit" [disabled]="!loginForm.form.valid">Create</button>
+     </form>
+</div>

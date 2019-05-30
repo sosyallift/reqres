@@ -1,0 +1,13 @@
+<h1>
+    Sample1 works!
+</h1>
+
+<!-- loading -->
+<div *ngIf="!(page$ | async)">
+    Loading...
+</div>
+
+<ng-container *ngIf="(page$ | async); let page">
+    <h3 class="title">{{ page.title }}</h3>
+    <div [innerHTML]="page.content | urlify" class="page-content"></div>
+</ng-container>

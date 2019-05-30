@@ -1,0 +1,31 @@
+<h1>
+    Guest book
+</h1>
+
+<!-- loading -->
+<div *ngIf="isPageLoading">
+    Loading...
+</div>
+
+<!-- messages wrapper -->
+<div *ngIf="!isPageLoading" class="messages-wrapper">
+    <div *ngFor="let messageData of messages">
+        <p [innerHTML]="messageData.message | urlify"><p>
+        <p><format-date-component [unixTime]="messageData.time"></format-date-component></p>
+        <br />
+    </div>
+</div>
+
+<hr />
+
+<!-- new message form -->
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #messageForm="ngForm">
+       <textarea autoSize
+            [(ngModel)]="newMessage" 
+            name="message" 
+            required>
+        </textarea>
+       <button type="submit" [disabled]="!messageForm.form.valid">Create</button>
+     </form>
+</div>
