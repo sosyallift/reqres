@@ -43,8 +43,7 @@ export class UsersPage implements OnInit {
     /**
      * Load user page
      */
-    loadUserPage(userId: number): void
-    {
+    loadUserPage(userId: number): void {
         this.router.navigateByUrl(`/user/${userId}`);
     }
 
