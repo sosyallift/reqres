@@ -17,12 +17,7 @@
     <!-- users wrapper -->
     <ng-container *ngIf="!isPageLoading && userList.length">
         <div *ngFor="let user of userList">
-            <div class="user-info" (click)="loadUserPage(user.id)">
-                <h3>{{ user.first_name }}  {{ user.last_name }}</h3>
-                <p>
-                    <small class="text-muted">{{ user.email }}</small>
-                </p>
-            </div>
+            <user-component [user]="user" (click)="loadUserPage(user.id)"></user-component>
         </div>
 
         <!-- paginate -->

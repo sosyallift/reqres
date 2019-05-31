@@ -9,11 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersPage } from './pages/users';
 import { UserPage } from './pages/user';
 
+// shared components
+import { UserComponent } from './shared/components/user';
+
 @NgModule({
     declarations: [
         AppRootComponent,
         UsersPage,
-        UserPage
+        UserPage,
+        UserComponent
     ],
     imports: [
         BrowserModule,
