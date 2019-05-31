@@ -11,6 +11,7 @@ import {  IUserResponse } from '../../../services/users';
 })
 export class UserComponent implements OnInit {
     @Input() user: IUserResponse;
+    @Input() isAvatarVisible: boolean = false;
 
     /**
      * Constructor

@@ -1,6 +1,6 @@
 <div class="card mb-3 user-card">
     <div class="row no-gutters">
-        <div class="col-md-4">
+        <div *ngIf="isAvatarVisible" class="col-md-4">
             <img [src]="user.avatar" class="card-img" />
         </div>
         <div class="col-md-8">

@@ -16,7 +16,7 @@
 
     <!-- user wrapper -->
     <ng-container *ngIf="!isPageLoading && user.data">
-        <user-component [user]="user.data"></user-component>
+        <user-component [user]="user.data" isAvatarVisible="true"></user-component>
     </ng-container>
 
     <!-- back wrapper -->

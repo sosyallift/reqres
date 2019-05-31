@@ -17,7 +17,7 @@
     <!-- users wrapper -->
     <ng-container *ngIf="!isPageLoading && userList.length">
         <div *ngFor="let user of userList">
-            <user-component [user]="user" (click)="loadUserPage(user.id)"></user-component>
+            <user-component [user]="user"  (click)="loadUserPage(user.id)"></user-component>
         </div>
 
         <!-- paginate -->
