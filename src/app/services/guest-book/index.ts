@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// responses
+import { IMessageResponse } from './responses';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -14,7 +17,7 @@ export class GuestBookService {
     /**
      * Load messages
      */
-    loadMessages(): Observable<any> {
-        return this.http.get(`/assets/pages/guest-book.json`);
+    loadMessages(): Observable<Array<IMessageResponse>> {
+        return this.http.get<Array<IMessageResponse>>(`/assets/pages/guest-book.json`);
     }
 }

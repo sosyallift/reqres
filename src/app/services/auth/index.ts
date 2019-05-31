@@ -3,6 +3,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+// responses
+import { ILoginResponse } from './responses';
+
 @Injectable()
 export class AuthService {
     /**
@@ -22,8 +25,8 @@ export class AuthService {
     /**
      * Login
      */
-    login(userName: string, password: string): Observable<any> {
-        return this.http.get(`/assets/pages/login.json`);
+    login(userName: string, password: string): Observable<ILoginResponse> {
+        return this.http.get<ILoginResponse>(`/assets/pages/login.json`);
     }
 
     /**

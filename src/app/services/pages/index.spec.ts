@@ -5,6 +5,9 @@ import { of } from 'rxjs';
 // services
 import { PagesService } from './';
 
+// responses
+import { IPageResponse } from './responses';
+
 describe('PagesService', () => {
     let fakeHttp: HttpClient;
     let pages: PagesService; // testable service
@@ -29,7 +32,7 @@ describe('PagesService', () => {
 
     it('loadPage should return a correct result', () => {
         const pageName: string = 'test';
-        const response = {
+        const response: IPageResponse = {
             title: 'test',
             content: 'test content'
         };
@@ -40,6 +43,8 @@ describe('PagesService', () => {
         );
 
         pages.loadPage(pageName).subscribe(data => {
+            expect(data).toEqual(response);
+
             // http
             expect(fakeHttp.get).toHaveBeenCalledWith(`/assets/pages/${pageName}.json`);
         });
