@@ -10,6 +10,7 @@ import { UsersPage } from './pages/users';
 import { UserPage } from './pages/user';
 
 // shared components
+import { UserListComponent } from './shared/components/user-list';
 import { UserComponent } from './shared/components/user';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { UserComponent } from './shared/components/user';
         AppRootComponent,
         UsersPage,
         UserPage,
+        UserListComponent,
         UserComponent
     ],
     imports: [

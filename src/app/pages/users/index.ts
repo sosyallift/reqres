@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 // services
 import { UsersService, IUserResponse } from '../../services/users';
@@ -19,7 +19,6 @@ export class UsersPage implements OnInit {
      * Constructor
      */
     constructor(
-        private router: Router,
         private route: ActivatedRoute,
         private users: UsersService, 
         private ref: ChangeDetectorRef) { }
@@ -38,13 +37,6 @@ export class UsersPage implements OnInit {
                 this.ref.markForCheck();
             });
         });
-    }
-
-    /**
-     * Load user page
-     */
-    loadUserPage(userId: number): void {
-        this.router.navigateByUrl(`/user/${userId}`);
     }
 
     /**
