@@ -1,13 +1,16 @@
-<h1>
-    Sample1 works!
-</h1>
+<div class="container">
+    <!-- page header -->
+    <h1>
+        Sample1 page
+    </h1>
 
-<!-- loading -->
-<div *ngIf="!(page$ | async)">
-    Loading...
+    <!-- loading -->
+    <div *ngIf="!(page$ | async)">
+        Loading...
+    </div>
+
+    <ng-container *ngIf="(page$ | async); let page">
+        <h3 class="title">{{ page.title }}</h3>
+        <div [innerHTML]="page.content | urlify" class="page-content"></div>
+    </ng-container>
 </div>
-
-<ng-container *ngIf="(page$ | async); let page">
-    <h3 class="title">{{ page.title }}</h3>
-    <div [innerHTML]="page.content | urlify" class="page-content"></div>
-</ng-container>

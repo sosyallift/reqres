@@ -11,8 +11,8 @@ import { AuthService } from '../../services/auth';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPage implements OnInit {
-    login: string = '';
-    password: string  = '';
+    login: string;
+    password: string;
     isPageLoading: boolean = false;
 
     /**

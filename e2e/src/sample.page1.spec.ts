@@ -9,7 +9,7 @@ describe('Sample page1', () => {
 
     it('should display welcome message', () => {
         page.navigateTo();
-        expect(page.getTitleText()).toEqual('Sample1 works!');
+        expect(page.getTitleText()).toEqual('Sample1 page');
     });
 
     it('should wait before page content loads', async() => {
