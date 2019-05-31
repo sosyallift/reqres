@@ -1,0 +1,37 @@
+<div class="container">
+    <!-- page header -->
+    <h1>User List</h1>
+
+    <!-- loading -->
+    <div *ngIf="isPageLoading">
+        Loading...
+    </div>
+
+    <!-- nothing found -->
+    <ng-container *ngIf="!isPageLoading && !userList.length">
+        <div class="alert alert-warning" role="alert">
+            Nothing found!
+        </div>
+    </ng-container>
+
+    <!-- users wrapper -->
+    <ng-container *ngIf="!isPageLoading && userList.length">
+        <div *ngFor="let user of userList">
+            <div class="user-info" (click)="loadUserPage(user.id)">
+                <h3>{{ user.first_name }}  {{ user.last_name }}</h3>
+                <p>
+                    <small class="text-muted">{{ user.email }}</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- paginate -->
+        <ul class="pagination">
+            <li *ngFor="let pageNumber of getPages()" class="page-item {{ currentPage == pageNumber ? 'active' : '' }}">
+                <a routerLink="/users/page/{{ pageNumber }}" class="page-link">
+                    {{ pageNumber }}
+                </a>
+            </li>
+        </ul>
+    </ng-container>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <!-- page header -->
+    <h1>User info</h1>
+
+    <!-- loading -->
+    <div *ngIf="isPageLoading">
+        Loading...
+    </div>
+
+    <!-- nothing found -->
+    <ng-container *ngIf="!isPageLoading && !user.data">
+        <div class="alert alert-warning" role="alert">
+            Nothing found!
+        </div>
+    </ng-container>
+
+    <!-- user wrapper -->
+    <ng-container *ngIf="!isPageLoading && user.data">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img [src]="user.data.avatar" class="card-img" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.data.first_name }}  {{ user.data.last_name }}</h5>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                {{ user.data.email }}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- back wrapper -->
+    <div>
+        <a routerLink="/users">Back</a>
+    </div>
+</div>
